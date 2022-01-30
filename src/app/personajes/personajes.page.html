@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-button>
+                <ion-icon name="airplane"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Heroes</ion-title>
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon name="globe"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let ol of listaHeroes" [routerLink]="['/personajes',ol.idHeroe]">
+            <ion-avatar slot="start">
+                <ion-img [src]="ol.foto"> </ion-img>
+            </ion-avatar>
+            <ion-label> {{ol.alias}} </ion-label>
+        </ion-item>
+
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="danger" [routerLink]="['/insertar-personaje']" type="button">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

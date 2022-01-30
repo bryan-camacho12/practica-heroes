@@ -1,0 +1,87 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/personajes"></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="primary" slot="end">
+            <ion-button (click)="notificacionEliminar()">
+                <ion-icon name="trash"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="secondary">
+            <ion-button [routerLink]="['/edit-personaje', personaje.idHeroe]">
+                <ion-icon name="create"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{personaje.nombre}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-img [src]="personaje.foto"></ion-img>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h1 class="ion-text-center">{{personaje.alias}}</h1>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label>Fecha de Nacimiento :</ion-label>
+                    <ion-label>{{personaje.fechaNac}}</ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label>Nacionalidad :</ion-label>
+                    <ion-label>{{personaje.nacionalidad}}</ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label>Residencia :</ion-label>
+                    <ion-label>{{personaje.residencia}}</ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label>Nivel del Heroe:</ion-label>
+                    <ion-label>{{personaje.level}}</ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h1 class="ion-text-center">Poderes</h1>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-list *ngIf="personaje.poderes && personaje.poderes.length > 0 ; else NoPoderes">
+
+                    <ion-item *ngFor="let com of personaje.poderes">
+                        <ion-label> {{com}} </ion-label>
+                    </ion-item>
+                </ion-list>
+                <ng-template #NoPoderes>
+                    <ion-text>
+                        <p class="ion-text-center">No tiene Poderes</p>
+                    </ion-text>
+                </ng-template>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-input placeholder="Desea agregar añadir un poder o habilidad" #poder></ion-input>
+    <ion-button color="primary" (click)="insertarPoder(poder.value)"> Guardar </ion-button>
+</ion-content>

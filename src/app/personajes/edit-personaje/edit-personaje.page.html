@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Editar Heroe</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-row>
+        <ion-col>
+            <ion-card>
+                <ion-card-content>
+                    <ion-input placeholder="Escriba la Url" type="text" [(ngModel)]="foto"></ion-input>
+                    <ion-input placeholder="nombre" [(ngModel)]="nombre"></ion-input>
+                    <ion-input placeholder="alias" [(ngModel)]="alias"></ion-input>
+                    <ion-input placeholder="fecha" [(ngModel)]="fechaNac"></ion-input>
+                    <ion-input placeholder="nacionalidad" [(ngModel)]="nacionalidad"></ion-input>
+                    <ion-input placeholder="residencia" [(ngModel)]="residencia"></ion-input>
+                    <ion-input placeholder="level" [(ngModel)]="level"></ion-input>
+                    <ion-button (click)="notificacionEditar()" color="primary">
+                        Guardar
+                    </ion-button>
+                </ion-card-content>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-content>
